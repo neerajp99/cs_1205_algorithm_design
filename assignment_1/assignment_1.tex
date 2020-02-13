@@ -1,0 +1,283 @@
+%
+% Algorithms problem set 1 solutions template
+% based on 6.006 pset solutions template
+%
+\documentclass[12pt, twoside]{article}
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage{algorithm} % Boxes/formatting around algorithms
+\usepackage[noend]{algpseudocode} % Algorithms
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\input{macros}
+\newcommand{\theproblemsetnum}{1}
+
+\title{Algorithms Problem Set 1}
+
+\begin{document}
+
+\handout{Problem Set \theproblemsetnum}
+% \textbf{All parts are due {\bf} at {\bf 10 PM}}.
+
+\setlength{\parindent}{0pt}
+\medskip\hrulefill\medskip
+
+{\bf Name:} Neeraj Pandey
+
+\medskip
+
+{\bf Collaborators:} Raunak Basu
+
+\medskip\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See below for common and useful latex constructs. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Some useful commands:
+%$f(x) = \Theta(x)$
+%$T(x, y) \leq \log(x) + 2^y + \binom{2n}{n}$
+% {\tt code\_function}
+
+
+% You can create unnumbered lists as follows:
+%\begin{itemize}
+%    \item First item in a list 
+%        \begin{itemize}
+%            \item First item in a list 
+%                \begin{itemize}
+%                    \item First item in a list 
+%                    \item Second item in a list 
+%                \end{itemize}
+%            \item Second item in a list 
+%        \end{itemize}
+%    \item Second item in a list 
+%\end{itemize}
+
+% You can create numbered lists as follows:
+%\begin{enumerate}
+%    \item First item in a list 
+%    \item Second item in a list 
+%    \item Third item in a list
+%\end{enumerate}
+
+% You can write aligned equations as follows:
+%\begin{align} 
+%    \begin{split}
+%        (x+y)^3 &= (x+y)^2(x+y) \\
+%                &= (x^2+2xy+y^2)(x+y) \\
+%                &= (x^3+2x^2y+xy^2) + (x^2y+2xy^2+y^3) \\
+%                &= x^3+3x^2y+3xy^2+y^3
+%    \end{split}                                 
+%\end{align}
+
+% You can create grids/matrices as follows:
+%\begin{align}
+%    A = 
+%    \begin{bmatrix}
+%        A_{11} & A_{21} \\
+%        A_{21} & A_{22}
+%    \end{bmatrix}
+%\end{align}
+
+% You can include images and PDFs as follows:
+% \includegraphics[width=0.5\textwidth]{img.jpg}
+
+\begin{problems}
+
+\problem  % Problem 1
+
+\begin{problemparts}
+\problempart % Problem 1a
+\begin{itemize}
+    \item $f_1$ = $6006_n$ \\
+    $\implies$ As the function is asymptotically the largest and comes first in the order.
+    \newline 
+    \item $f_2$ = $(log_n)^{6006}$ \\
+    $\implies$  As the function is of the order $O((log n)^x$, it comes third in the order here.
+    \item $f_3$ = $6006n$ \\
+    $\implies$ As the function is linear function, so it is asymptotically the least and comes last in the order.
+    \newline 
+    \item $f_4$ = $n^{6006}$ \\
+    $\implies$ As the function is polynomial, so it is asymptotically comes fourth in the order.
+    \newline 
+    \item $f_5$ = $nlog(n^{6006})$ \\
+    $\implies$ As the function is of order $O(n log n)$, it comes second in the order
+    \newline 
+    Therefore, the final order is \\
+    \[f_{3} , f_{5} , f_{2} , f_{4} , f_{1}\]
+\end{itemize}
+
+\problempart % Problem 1b
+\begin{itemize}
+    \item $f_1$ = $n^{3 log n}$ \\
+    $\implies$ This function is asymptotically the greatest because it is of the order $O(n ^{3logn})$
+    \newline 
+    \item $f_2$ = $(log(log n))^3$ \\
+    $\implies$  This function asymptotically comes second in the order because it is of the order $O((log(log n))^3)$
+    \item $f_3$ = $log((log n)^3)$ \\
+    $\implies$ This function is asymptotically the least as it is of the order $O(log(logn))$
+    \newline 
+    \item $f_4$ = $log((3^{n})^{3})$ \\
+    $\implies$ The function is of the order $O(n^{3})$, so it is asymptotically fouth in the order.
+    \newline 
+    \item $f_5$ = $(logn)^{log(n^3)}$ \\
+    $\implies$ As the function is of order $O(log n ^{3 log n})$, it comes third in the order
+    \newline 
+    Therefore, the final order is \\
+    \[f_{3} ,f_{2}, f_{5}, f_{4},  f_{1}\]
+\end{itemize}
+\problempart % Problem 1c
+\begin{itemize}
+    \item $f_1$ = $3^{2^n}$ \\
+    $\implies$ This function comes second asymptotically in the order.
+    \newline 
+    \item $f_2$ = $2^{2^{n+1}}$ \\
+    $\implies$  This function comes first asymptotically in the order.
+    \item $f_3$ = $2^{2n}$ \\
+    $\implies$  This function comes first asymptotically in the order.
+    \newline 
+    \item $f_4$ = $8^{n}$ \\
+    $\implies$ This function comes first asymptotically in the order.
+    \newline 
+    \item $f_5$ = $2^{n^{3}}$ \\
+    $\implies$ This function comes third asymptotically in the order.
+    \newline 
+\end{itemize}
+   The final order is: 
+    \[\{f_{2}, f_{3}, f_{4}\}, f_{1}, f_{5}\]
+\problempart % Problem 1d
+\begin{itemize}
+    \item $f_1$ = $\big({_2^n}\big)$ \\
+    $\implies$ The function is of the order $O(2^n)$
+    \newline 
+    \item $f_2$ = $n^2$ \\
+    $\implies$  The function is of the order $O(n^2)$
+    \item $f_3$ = $2^{2n}$ \\
+    $\implies$  The function is of the order $O(n^2)$
+    \newline 
+    \item $f_4$ = $\big({_{\frac{n}{2}}^n}\big)$ \\
+    $\implies$ Here, using Stirling Approximation \\
+    \[\big( \frac{n!}{\frac{n}{2}! \frac{n}{2}!} \big) \]
+    \[\implies O(2^{n} / {\sqrt n})\]
+    \newline 
+    \item $f_5$ = $2(n!)$ \\
+    $\implies$ The function is of the order $O(n!)$
+    \newline 
+\end{itemize}
+Therefore, the final order is \\
+    \[\{f_{2},  f_{3}\}, f_{4},  f_{1},  f_{5}\]
+\end{problemparts}
+
+\newpage
+\problem  % Problem 2
+
+\begin{problemparts}
+\problempart % Problem 2a
+For k = 5
+\[T_{n} = \Bigg\{ {O(1) \text{ if } n =1 ,
+5T(\frac{n}{5}) + C_{n} \text{ if } n > 1 }
+
+
+
+\problempart % Problem 2b
+Given, $a=5$ and $b=5$ and $f(n) = n$ \\
+According to case 2 of Master Theorem,
+\[n^{log _ a^b} = n^{log _ 5^5} = 5 = f(n)\] \\
+Therefore, solution to the recurrence is of the order $O(n log n)$
+
+\problempart % Problem 2c
+For $k=\sqrt{n}$,
+\[\bigg\{  O(1) \text{ if } n=1,  \sqrt{n} (T(\sqrt{n}) + C_{n}) \text{ if } n >  1\]
+
+\end{problemparts}
+
+\newpage
+\problem  % Problem 3
+
+\begin{problemparts}
+\problempart % Problem 3a
+$T(n) = 2T(\frac{n}{2}) + O(2^{n})$ \\
+Using Master algorithm, 
+\[a = 2 = 2\]
+\[n^{log_{a^b}} = n^{log_{2^2}} = n\]
+\[f(n) = 2^{n} \implies \text{ This is a polynomial and  asymptotically it is greater than n }\]
+\[\text{Using case 3 of masters theorem}\]
+\[ \implies \text{ solution to recurrence is } O(2^{n}) \]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{3a.png}
+\end{center}
+\problempart % Problem 3b
+$T(n) = 3T (\frac{n}{9}) + O(\sqrt {n})$ \\ 
+Using Master Theorem, 
+\[ a = 3, b = 9\]
+\[n^{log_{b^a}} = n^{log_{9^3}} = n^{\frac{1}{2}}\]
+\[ f(n) = C{\sqrt{n}} \implies \text{ it is  asymptotically equal to n }, i.e: n^{log_{b^a}}  \]
+\[\text{Using case 2 of Master Theorem}\]
+\[\implies \text{ solution to recurrence is } O({\sqrt{n} log n})\]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{3b.png}
+\end{center}
+\problempart % Problem 3c
+$T(n) = 2T(\frac{n}{3}) + log_{7}n + 6$ \\
+Using Master Theorem,
+\[a = 2, b = 3\]
+\[n^{log_{b^a}} = n^{log_{3^2}} \]
+
+\[f(n) = log_{7}n + 6 \] 
+\[ \text{f(n) is polynomially greater than} n^{log_{b^a}}  \]
+\[\text{Using case 3 of master theorem,} \]
+\[\text{ solution to recurrence is } O(log_{7}n + 6)\]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{3c.png}
+\end{center}
+\problempart % Problem 3d
+Recursion tree is below:
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{3d.png}
+\end{center}
+\end{problemparts}
+
+\newpage
+\problem  % Problem 4
+
+\begin{problemparts}
+\problempart % Problem 4a
+Here, we are taking the skylines as geometrical rectangle shapes. The naive incremental algorithm will run with a time complexity of $O(n^2)$ for n steps. Starting from  some point, we mark all points for the buildings separately as keys at the start of the horizontal line segment (rectangle). Now, we add all the points to update the skyline. The kth element is unknown upto the k - 1 lines in the skyline which is formed by k - 1 rectangles, so the list requires $O(k)$ in it’s worst case scenario to update the list. So, the resulting time complexity will be $O(n^2)$. This approach will require more time as it will run the program many times to add one rectangle.
+\problempart % Problem 4b
+Start with a point (rectangle), and take it’s height as the skyline height (the largest building). Move to the end of the building, and remove the building from the list. If this end point is the highest point then it will be the skyline point as well and add it to the priority queue. If the buildings in front are taller then don’t add the skyline point. 
+An easy understanding can be, make a list and add each element to it. If we have a start or end position of the building (rectangle) and it is taller/bigger than the right rectangle, remove the current element from the data type (priority queue) and add the other element to the datatype. If the height of the last added element is different from the height of the first element, add the new point as skyline point as height has been changed.  This algorithm will have a time complexity of O(n). \\
+\problempart % Problem 4c
+The divide and conquer method is the best case to produce a skyline in O(n log n) time. The way we implement the divide and conquer algorithm is as follows.\\
+\newline
+First, the program will sort all the index points in the array x\_left and x\_right. The program will divide the buildings into two halves and then recursively create a skyline for those two halves. After the skyline for both halves is made, it will merge those skylines to create a final result. Starting from the left most point of both created skylines, if the left most points are not the same, it will update the height to the max height of the pointer in the skyline\\
+\newline
+Now, as the pointer moves from left to right, if and when the next index overlap, it shall update the height to the maximum of the two and then  and then append the pointer to this index. To finish the program, it will proceed with the same steps given above until the end for both skylines is reached.\\
+\newline
+Since this algorithm is in a similar format to that of the merge sort algorithm, it will take O(n log n) time to create a skyline with n buildings.\\
+
+\problempart Submit your implementation online.
+\end{problemparts}
+
+\end{problems}
+
+\end{document}
+
