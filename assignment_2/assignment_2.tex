@@ -1,0 +1,155 @@
+%
+% Algorithms problem set 1 solutions template
+% based on 6.006 pset solutions template
+%
+\documentclass[12pt,twoside]{article}
+
+\input{macros}
+\newcommand{\theproblemsetnum}{2}
+
+\title{Algorithms Problem Set 2}
+
+\begin{document}
+
+\handout{Problem Set \theproblemsetnum}
+% \textbf{All parts are due {\bf} at {\bf 10 PM}}.
+
+\setlength{\parindent}{0pt}
+\medskip\hrulefill\medskip
+
+{\bf Name:} Neeraj Pandey
+
+\medskip
+
+{\bf Collaborators:} Tanuj Sood
+
+\medskip\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See below for common and useful latex constructs. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Some useful commands:
+%$f(x) = \Theta(x)$
+%$T(x, y) \leq \log(x) + 2^y + \binom{2n}{n}$
+% {\tt code\_function}
+
+
+% You can create unnumbered lists as follows:
+%\begin{itemize}
+%    \item First item in a list 
+%        \begin{itemize}
+%            \item First item in a list 
+%                \begin{itemize}
+%                    \item First item in a list 
+%                    \item Second item in a list 
+%                \end{itemize}
+%            \item Second item in a list 
+%        \end{itemize}
+%    \item Second item in a list 
+%\end{itemize}
+
+% You can create numbered lists as follows:
+%\begin{enumerate}
+%    \item First item in a list 
+%    \item Second item in a list 
+%    \item Third item in a list
+%\end{enumerate}
+
+% You can write aligned equations as follows:
+%\begin{align} 
+%    \begin{split}
+%        (x+y)^3 &= (x+y)^2(x+y) \\
+%                &= (x^2+2xy+y^2)(x+y) \\
+%                &= (x^3+2x^2y+xy^2) + (x^2y+2xy^2+y^3) \\
+%                &= x^3+3x^2y+3xy^2+y^3
+%    \end{split}                                 
+%\end{align}
+
+% You can create grids/matrices as follows:
+%\begin{align}
+%    A = 
+%    \begin{bmatrix}
+%        A_{11} & A_{21} \\
+%        A_{21} & A_{22}
+%    \end{bmatrix}
+%\end{align}
+
+% You can include images and PDFs as follows:
+% \includegraphics[width=0.5\textwidth]{img.jpg}
+
+\begin{problems}
+
+\problem  % Problem 1
+
+\begin{problemparts}
+\problempart % Problem 1a
+ Here, we assume that for $A_{0}$ and $A_{1}$ there is one endpoint in the array $e_{i} = max[A_{i}]$ and for the smaller endpoint ($e_{0}$), we have $e_{0} = max(A_{i}[x_{0}:\frac{n}{2} + 1])$. For the large endpoint, ($e_{1}$), we have $e_{1} = max(A_{i}[\frac{n}{2} : x_{1} + 1])$. Further, if we have an integer value greater than $e_{0}$ or $e_{i}$ in any of the array, that value will be the endpoint. Therefore, we have $e_{i} = max[A_{i}]$
+\problempart % Problem 1b
+Using the divide and conquer algorithm, the first step is to split the array into 2 parts as $A_{0}$ and $A_{1}$. In the above problem, we had an assumption that each of the endpoints lies in each half. So, split each of the halved repeatedly(recursively) until there is only 1 element left in the split array. So, store the values for the largest value in each half. Further, the endpoints are going to be $A_{0}$ and $A_{1}$. Next step is to merge the arrays back into the original order, and find the length between the two stored index values which will give the maximum length of the possible zipline.
+\end{problemparts}
+
+\newpage
+\problem  % Problem 2
+
+\begin{problemparts}
+\problempart % Problem 2a
+\begin{itemize}
+    \item (1) Min-heap
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{1.png}
+\end{center}
+    \item (2) Max-heap
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{2.png}
+\end{center}
+    \item  (3) Min-Heap
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{3.png}
+\end{center}
+    \item (4) Not Min-heap, Not Max-heap
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{4.png}
+\end{center}
+
+\end{itemize}
+
+\problempart % Problem 2b
+Given X = {6, 5, 3, 2, 6, 1, 4} \\
+As it is a max-heap, value of A,
+\[A = \{6, 6\}\]
+As A will be 6, B can take values of either 5 or 6 
+\[B = \{5, 6\} \]
+\[D = B - \{1, 2, 3, 4\}\]
+\[E = D - \{1, 2, ,3, 4\}\]
+\[F = E - D - \{1, 2, 3, 4\}\]
+\[G = E - D - F - \{1, 2, 3, 4\}\]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{5.png}
+\end{center}
+\end{problemparts}
+\newpage
+\problem  % Problem 3
+
+\begin{problemparts}
+\problempart % Problem 3a
+There are $r$ TA's, so we have to merge $r$ sorted lists for the instructor to check. Further, we don't know the number of TA's, if they are two or more, we can sort all the grades using the $k-way$ merge algorithm using the $min-heap$ as the grades are sorted and $r>=2$. From the $k$ list of students, create a $min-heap$ with a pointer before each element. We will have $r$ elements in the min-heap, pick a single element from the $r$ sorted lists. The root node of the $min-heap$ consists the smallest values, pick the value and add it to the final array. By picking the root element, we increment the pointer in the list and insert in the heap and this will take the time complexity of $O(log r)$. As we have removed an element from the heap and then added an element to it, we repeat this for $s$ times for $s $ students. This entire insertion and deletion of elements will take $O(2s logk)$ (removing the constant), we get $O(slogk)$ using the k-way merge technique and using the $min-heap$. 
+
+\end{problemparts}
+
+\newpage
+\problem  % Problem 4
+
+\begin{problemparts}
+\problempart % Problem 4a
+Priority Queue : Sorted array \\
+Sorted array has $O(n)$ for inserting new element because you have compare $n$ elements to sort in worst case. Sorted array has $O(1)$ to find max and min because it is sorted already and first and last will be min and max. 
+\problempart % Problem 4b
+Using priority queue to use insertion sort as it is already sorted and $record\_bowl$ will take $O(n)$ while $best\_bowl$ will take $O(k)$. We will create a heap and call all the elements of $record\_bowl$. We will heapify after every insertion as the insertion is not expected to be sorted. Now, take out $k$ elements from the heap which will take $O(k)$. Further, on every iteration of $record\_bowl$, it will take $O(k + log n)$ as the time complexity is linear and depends on where it is within the heap. To take $k$ elements out, it will be a linear $O(k)$ for $best\_bowl$.
+\problempart Submit your implementation online. 
+\end{problemparts}
+
+\end{problems}
+
+\end{document}
+
